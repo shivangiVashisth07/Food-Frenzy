@@ -1,0 +1,161 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  height: 90px;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+  background: white;
+  z-index: 1;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+}
+
+.logo {
+  width: 100px;
+  height: 90px;
+  padding-left: 30px;
+}
+
+.nav-itemList > ul {
+  list-style-type: none;
+  display: flex;
+  padding-right: 30px;
+  padding-top: 35px;
+
+  margin: auto;
+  margin: 0px;
+}
+
+.nav-itemList > ul > li {
+  padding: 0 12px;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.restaurantCard {
+  width: 20%;
+  padding: 10px;
+  margin: 20px;
+  transition: transform 0.3s ease-in-out;
+  z-index: 0;
+  font-weight: normal;
+}
+
+.restaurantCard:hover {
+  transform: scale(1.1);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.restaurantCard > img {
+  width: 100%;
+  height: 150px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.cards {
+  display: flex;
+  flex-flow: wrap;
+  padding: 0 50px;
+}
+
+.searchBar {
+  margin-top: 80px;
+  margin-left: 35%;
+  justify-content: center;
+}
+
+.searchBar > input {
+  border-radius: 20px;
+  height: 25px;
+  width: 250px;
+  margin-top: 35px;
+  margin-left: auto;
+}
+
+.searchBar > button {
+  width: 60px;
+  height: 25px;
+  border-radius: 20px;
+  margin-left: 12px;
+}
+
+.restaurantListBody {
+  padding-top: 60px;
+}
+
+.cards {
+  padding-top: 6%;
+}
+
+.skeletonCard {
+  margin-top: 260px;
+  margin-left: 60px;
+  width: 18%;
+  padding: 10px;
+  height: 260px;
+  background-color: #f0f0f0;
+  justify-content: space-between;
+}
+
+.imageBox {
+  width: 100%;
+  height: 150px;
+  background-color: #d8d8d8;
+  justify-content: center;
+}
+
+.heading {
+  width: 70%;
+  height: 15px;
+  background-color: #d8d8d8;
+}
+
+.shimmer-wrapper {
+  position: relative;
+}
+
+.shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    #f4f4f4 50%,
+    transparent 100%
+  );
+  animation: shimmer 2.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.notFound {
+  color: orange;
+}
+
+.logIn {
+  border-radius: 20px;
+  background-color: orange;
+}
+.logOut {
+  border-radius: 20px;
+  background-color: orange;
+}
