@@ -31,19 +31,25 @@ body {
   display: flex;
   padding-right: 30px;
   padding-top: 35px;
-
-  margin: auto;
-  margin: 0px;
 }
 
 .nav-itemList > ul > li {
-  padding: 0 12px;
+  padding: 0 10px;
   font-size: 19px;
   font-weight: bold;
+  color: black;
+}
+
+a {
+  font-size: 19px;
+  font-weight: bold;
+  color: black;
+  margin-right: 15px;
+  text-decoration: none;
 }
 
 .restaurantCard {
-  width: 20%;
+  width: 250px;
   padding: 10px;
   margin: 20px;
   transition: transform 0.3s ease-in-out;
@@ -96,11 +102,18 @@ body {
   padding-top: 6%;
 }
 
+.shimmer-cards {
+  width: 100%;
+  display: flex;
+  flex-flow: wrap;
+  padding: 0 50px;
+  padding-top: 15%;
+}
+
 .skeletonCard {
-  margin-top: 260px;
-  margin-left: 60px;
-  width: 18%;
+  width: 280px;
   padding: 10px;
+  margin: 20px;
   height: 260px;
   background-color: #f0f0f0;
   justify-content: space-between;
@@ -158,4 +171,87 @@ body {
 .logOut {
   border-radius: 20px;
   background-color: orange;
+}
+
+.about {
+  margin-top: 150px;
+  margin-left: 100px;
+  margin-right: 100px;
+  justify-content: center;
+  font-family: "Lato", sans-serif;
+}
+.about > h1,
+h2 {
+  color: orange;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+}
+
+.errorPage > h1,
+h2 {
+  color: orange;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+}
+
+p {
+  margin-top: 40px;
+  color: orange;
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+.errorPage {
+  margin-top: 150px;
+}
+.errorPage > img {
+  width: 200px;
+  height: 200px;
+  margin-left: 46%;
+}
+
+.restaurantDetails {
+  margin-top: 130px;
+  margin-left: 120px;
+  margin-right: 120px;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Lato", sans-serif;
+}
+
+.name-details {
+  width: 350;
+  padding: 10px;
+  height: 400px;
+}
+
+.name-details > img {
+  width: 100%;
+  height: 200px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.Menu {
+  width: 700px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.Menu > h3 {
+  text-align: center;
+  font-size: x-large;
+}
+.firstMenu > h4 {
+  font-size: x-large;
+  text-decoration: underline;
+  margin-left: 40px;
+}
+
+.menuWithPrice {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 1.5;
+  margin-right: 30px;
 }

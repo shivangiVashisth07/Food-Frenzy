@@ -14,7 +14,7 @@ const RestaurantCard = function (props) {
           <strong>{props.name}</strong>
         </h3>
         <h4>{props.cuisines.slice(0, 4).join(",  ")} </h4>
-        <h4>{props.avgRating} Stars</h4>
+        <h4>✩ {props.avgRating}</h4>
       </div>
     </>
   );
