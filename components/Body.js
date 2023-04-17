@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./ShimmerUI";
 import { Link } from "react-router-dom";
-import useRestaurantList from "../utils/UseRestaurantList";
-import useOnline from "../utils/useOffline";
-import { filterList } from "../utils/helper";
+import useRestaurantList from "../Utils/UseRestaurantList";
+import useOnline from "../Utils/useOffline";
+import { filterList } from "../Utils/helper";
 //Body
 const Body = function () {
   const [searchText, setSearchText] = useState("");
