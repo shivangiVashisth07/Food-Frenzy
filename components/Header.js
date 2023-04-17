@@ -17,7 +17,7 @@ const Header = function () {
               <li className="profile">About us</li>
             </Link>
             <Link to="/">
-              <li className="Cart">Profile</li>
+              <li className="Cart">Cart</li>
             </Link>
 
             <li>

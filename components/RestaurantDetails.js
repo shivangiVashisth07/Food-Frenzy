@@ -1,44 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Shimmer from "./ShimmerUI";
 import { useParams } from "react-router-dom";
+import { IMG_CDN_URL } from "../constants";
+import UseRestaurantMenu from "../Utils/useRestaurantMenu";
 
 const RestaurantDetails = () => {
   const { id } = useParams();
   console.log(id);
-  const [details, setDetails] = useState({});
-  const [menuDetails, setMenuDetails] = useState([]);
 
-  useEffect(() => {
-    getDetails();
-  }, []);
-
-  async function getDetails() {
-    const details = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.967437781392185&lng=77.69412226974964&restaurantId=" +
-        id +
-        "&submitAction="
-    );
-    const json = await details.json();
-
-    setMenuDetails(
-      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
-        ?.card?.itemCards
-    );
-    console.log(menuDetails);
-    setDetails(json?.data?.cards[0]?.card?.card?.info);
-  }
+  const [details, menuDetails] = UseRestaurantMenu(id);
 
   return menuDetails.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="restaurantDetails">
       <div className="name-details">
-        <img
-          src={
-            "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-            details.cloudinaryImageId
-          }
-        />
+        <img src={IMG_CDN_URL + details.cloudinaryImageId} />
         <h3>
           <strong>{details.name}</strong>
         </h3>
@@ -50,17 +27,27 @@ const RestaurantDetails = () => {
         <h4>{details.costForTwoMessage}</h4>
       </div>
       <div className="Menu">
-        <h3>Menu</h3>
+        <h2>Menu</h2>
         <div className="firstMenu">
-          <h4>Recommended</h4>
-          <ul className="Recommended">
+          <div className="recommended">
             {menuDetails.map((item) => (
-              <div key={item?.card?.info?.id} className="menuWithPrice">
-                <li>{item?.card?.info?.name}</li>
-                <li>₹ {item?.card?.info?.price / 100}</li>
-              </div>
+              <>
+                <div key={item?.card?.info?.id} className="menuWithPrice">
+                  <div className="description">
+                    <h3>{item?.card?.info?.name}</h3>
+                    <h5>{item?.card?.info?.description}</h5>
+                    <h4>₹ {item?.card?.info?.price / 100}</h4>
+                  </div>
+                  <div className="itemImage">
+                    <img src={IMG_CDN_URL + item?.card?.info?.imageId} />
+                    <br />
+                    <button className="add">Add</button>
+                  </div>
+                </div>
+                <hr />
+              </>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </div>

@@ -4,35 +4,32 @@ import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./ShimmerUI";
 import { Link } from "react-router-dom";
-
-//Restaurant card
-function filterList(searchText, allRestaurantList) {
-  const filterData = allRestaurantList.filter((rest) =>
-    rest?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase())
-  );
-  return filterData;
-}
+import useRestaurantList from "../utils/UseRestaurantList";
+import useOnline from "../utils/useOffline";
+import { filterList } from "../utils/helper";
 //Body
 const Body = function () {
-  const [filterRestaurantList, setFilterRestaurantList] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [allRestaurantList, setAllRestaurantList] = useState([]);
+  const [allRestaurantLists, filterRestaurantLists, setFilterRestaurantLists] =
+    useRestaurantList();
 
-  useEffect(() => {
-    getRestaurants();
-  }, []);
+  const mode = useOnline();
 
-  async function getRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.967437781392185&lng=77.69412226974964&page_type=DESKTOP_WEB_LISTING"
+  if (!mode) {
+    return (
+      <div>
+        <h1 className="offlineText">
+          Oops! It appears that you are currently offline. Please connect to the
+          internet to continue
+        </h1>
+        ;
+      </div>
     );
-    const json = await data.json();
-    setAllRestaurantList(json?.data?.cards[2]?.data?.data?.cards);
-    setFilterRestaurantList(json?.data?.cards[2]?.data?.data?.cards);
-    console.log(json);
   }
 
-  return allRestaurantList.length === 0 ? (
+  if (!allRestaurantLists) return null;
+
+  return allRestaurantLists.length === 0 ? (
     <Shimmer />
   ) : (
     <>
@@ -49,21 +46,20 @@ const Body = function () {
         <button
           type="submit"
           onClick={() => {
-            const newList = filterList(searchText, allRestaurantList);
-            console.log(newList);
-            setFilterRestaurantList(newList);
+            const filteredData = filterList(searchText, allRestaurantLists);
+            setFilterRestaurantLists(filteredData);
           }}
         >
           Search
         </button>
       </div>
       <div className="cards">
-        {filterRestaurantList.length === 0 ? (
+        {filterRestaurantLists.length === 0 ? (
           <h1 className="notFound">
             <strong>No restaurant matches your filter!!</strong>
           </h1>
         ) : (
-          filterRestaurantList.map((restaurants) => {
+          filterRestaurantLists.map((restaurants) => {
             return (
               <Link
                 to={"/restaurant/" + restaurants.data.id}

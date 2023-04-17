@@ -220,7 +220,7 @@ p {
 }
 
 .name-details {
-  width: 350;
+  width: 26%;
   padding: 10px;
   height: 400px;
 }
@@ -232,26 +232,65 @@ p {
 }
 
 .Menu {
-  width: 700px;
-  padding: 10px;
+  width: 60%;
+  padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-size: medium;
 }
-.Menu > h3 {
+.Menu > h2 {
   text-align: center;
-  font-size: x-large;
+  color: black;
 }
 .firstMenu > h4 {
-  font-size: x-large;
   text-decoration: underline;
   margin-left: 40px;
+  margin-right: 40px;
+}
+
+.recommended {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.recommended > hr {
+  opacity: 54%;
 }
 
 .menuWithPrice {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 200;
-  line-height: 1.5;
-  margin-right: 30px;
+  line-height: 1.2;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.description {
+  width: 70%;
+}
+
+.itemImage > img {
+  width: 100px;
+  height: 100px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+}
+
+.itemImage > button {
+  border-radius: 5px;
+  background-color: orange;
+  color: #f0f0f0;
+  border: orange;
+  display: block;
+  margin: auto;
+}
+
+.offlineText {
+  margin-top: 150px;
+  color: orange;
+  text-align: center;
 }
