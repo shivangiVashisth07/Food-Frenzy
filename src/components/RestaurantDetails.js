@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Shimmer from "./ShimmerUI";
 import { useParams } from "react-router-dom";
-import { IMG_CDN_URL } from "../constants";
+import { IMG_CDN_URL } from "../../constants";
 import UseRestaurantMenu from "../Utils/useRestaurantMenu";
+import { useDispatch } from "react-redux";
+import { addItem } from "../Utils/cartSlice";
 
 const RestaurantDetails = () => {
   const { id } = useParams();
-  console.log(id);
 
   const [details, menuDetails] = UseRestaurantMenu(id);
+
+  const dispatch = useDispatch();
+
+  const addFoodItem = (item) => {
+    dispatch(addItem(item));
+  };
 
   return menuDetails.length === 0 ? (
     <Shimmer />
@@ -31,8 +38,8 @@ const RestaurantDetails = () => {
         <div className="firstMenu">
           <div className="recommended">
             {menuDetails.map((item) => (
-              <>
-                <div key={item?.card?.info?.id} className="menuWithPrice">
+              <React.Fragment key={item?.card?.info?.id}>
+                <div className="menuWithPrice">
                   <div className="description">
                     <h3>{item?.card?.info?.name}</h3>
                     <h5>{item?.card?.info?.description}</h5>
@@ -41,11 +48,18 @@ const RestaurantDetails = () => {
                   <div className="itemImage">
                     <img src={IMG_CDN_URL + item?.card?.info?.imageId} />
                     <br />
-                    <button className="add">Add</button>
+                    <button
+                      className="add"
+                      onClick={() => {
+                        addFoodItem(item);
+                      }}
+                    >
+                      Add
+                    </button>
                   </div>
                 </div>
                 <hr />
-              </>
+              </React.Fragment>
             ))}
           </div>
         </div>

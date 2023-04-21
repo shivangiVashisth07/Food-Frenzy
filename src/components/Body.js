@@ -1,5 +1,5 @@
 import React from "react";
-import restaurant from "../constants";
+import restaurant from "../../constants";
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./ShimmerUI";

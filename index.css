@@ -165,12 +165,18 @@ a {
 }
 
 .logIn {
-  border-radius: 20px;
+  border: orange;
   background-color: orange;
+  color: white;
+  height: 30px;
+  border-radius: 20px;
 }
 .logOut {
-  border-radius: 20px;
+  border: orange;
   background-color: orange;
+  color: white;
+  height: 30px;
+  border-radius: 20px;
 }
 
 .about {
@@ -293,4 +299,78 @@ p {
   margin-top: 150px;
   color: orange;
   text-align: center;
+}
+
+.cartHeading {
+  margin-top: 130px;
+  color: orange;
+  text-align: center;
+}
+.foodCard {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex block;
+  margin-top: 40px;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.card-details {
+  width: 78%;
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: 200;
+}
+.imageCard {
+  padding: 10px;
+  width: 18%;
+
+  justify-content: center;
+}
+
+.imageCard > img {
+  width: 120px;
+  height: 100px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  display: block;
+  margin-top: 15px auto;
+  margin-left: 10px;
+}
+
+.imageCard > button {
+  border-radius: 5px;
+  background-color: orange;
+  color: #f0f0f0;
+  border: orange;
+  display: block;
+  margin: auto;
+}
+
+.empty-cart {
+  color: orange;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+}
+
+.cart-image {
+  margin-top: 130px;
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin-left: 600px;
+}
+
+.clear {
+  background-color: orange;
+  color: white;
+  border: orange;
+  width: 100px;
+  height: 40px;
+  font-size: 15px;
+  margin-left: 1050px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

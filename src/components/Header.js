@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import Logo from "../Images/Logo.jpg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = function () {
   const [loggedInUser, setLoggedInUser] = useState("true");
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
   return (
     <>
       <div className="container sticky">
@@ -16,8 +19,8 @@ const Header = function () {
             <Link to="/about">
               <li className="profile">About us</li>
             </Link>
-            <Link to="/">
-              <li className="Cart">Cart</li>
+            <Link to="/cart">
+              <li className="Cart">Cart-{cartItems.length} items</li>
             </Link>
 
             <li>
