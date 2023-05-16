@@ -29,7 +29,7 @@ const Body = function () {
 
   if (!allRestaurantLists) return null;
 
-  return allRestaurantLists.length === 0 ? (
+  return allRestaurantLists?.length === 0 ? (
     <Shimmer />
   ) : (
     <>

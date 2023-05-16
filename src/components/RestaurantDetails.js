@@ -17,7 +17,7 @@ const RestaurantDetails = () => {
     dispatch(addItem(item));
   };
 
-  return menuDetails.length === 0 ? (
+  return menuDetails?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="restaurantDetails">
@@ -37,7 +37,7 @@ const RestaurantDetails = () => {
         <h2>Menu</h2>
         <div className="firstMenu">
           <div className="recommended">
-            {menuDetails.map((item) => (
+            {menuDetails?.map((item) => (
               <React.Fragment key={item?.card?.info?.id}>
                 <div className="menuWithPrice">
                   <div className="description">
