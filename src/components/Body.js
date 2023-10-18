@@ -1,6 +1,6 @@
 import React from "react";
-import restaurant from "../../constants";
-import { useState, useEffect } from "react";
+
+import { useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./ShimmerUI";
 import { Link } from "react-router-dom";
@@ -45,6 +45,7 @@ const Body = function () {
         ></input>
         <button
           type="submit"
+          data-testid="search-btn"
           onClick={() => {
             const filteredData = filterList(searchText, allRestaurantLists);
             setFilterRestaurantLists(filteredData);
@@ -62,11 +63,11 @@ const Body = function () {
           filterRestaurantLists.map((restaurants) => {
             return (
               <Link
-                to={"/restaurant/" + restaurants.data.id}
-                key={restaurants.data.id}
+                to={"/restaurant/" + restaurants.info.id}
+                key={restaurants.info.id}
               >
                 {" "}
-                <RestaurantCard {...restaurants.data} />
+                <RestaurantCard {...restaurants.info} />
               </Link>
             );
           })

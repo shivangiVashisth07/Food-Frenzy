@@ -10,7 +10,14 @@ const Header = function () {
   return (
     <>
       <div className="container sticky">
-        <img src={Logo} alt="Food Frenzy" className="logo" />
+        <Link to="/">
+          <img
+            src={Logo}
+            data-testid="logo"
+            alt="Food Frenzy"
+            className="logo"
+          />
+        </Link>
         <div className="nav-itemList">
           <ul>
             <Link to="/">
@@ -20,7 +27,9 @@ const Header = function () {
               <li className="profile">About us</li>
             </Link>
             <Link to="/cart">
-              <li className="Cart">Cart-{cartItems.length} items</li>
+              <li className="Cart" data-testid="cart">
+                Cart-{cartItems.length} items
+              </li>
             </Link>
 
             <li>

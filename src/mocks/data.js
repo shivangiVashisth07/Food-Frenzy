@@ -1,10 +1,4 @@
-export const IMG_CDN_URL =
-  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
-
-export const Menu_Details_URL =
-  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.967437781392185&lng=77.69412226974964&restaurantId=";
-
-export const restaurant = {
+export const restaurant_data = {
   statusCode: 0,
   data: {
     statusMessage: "done successfully",
@@ -6855,5 +6849,3 @@ export const restaurant = {
   deviceId: "99b75d10-2648-8328-c3de-0bfe37fed9bf",
   csrfToken: "ThV4T0M5kPPv-X8arXMK9kWSlrjZTtu0_udVN3Rw",
 };
-
-
